@@ -257,9 +257,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ====================================================
 
-    // Trigger MixitUp - [Shuffle Plugin]
-    let boxShuffle = document.querySelector('#box-shuffle');
-    // let mixer = mixitup(boxShuffle);
+    // Projects Section // MixItUP
+    const toggle = document.querySelector(".filter-toggle");
+    const sheet = document.querySelector(".filter-sheet");
+    const filterOverlay = document.querySelector(".filter-overlay");
+    const closeBtn = document.querySelector(".close-filter");
+    const filterTitle = document.querySelector(".filter-title");
+    const shuffleContainer = document.querySelector(".shuffle");
+    const allItem = document.querySelector(".projects-filters li.all");
+    const boxShuffle = document.querySelector("#box-shuffle");
+
     const mixer = mixitup(boxShuffle, {
         selectors: {
             target: '.mix'
@@ -271,15 +278,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Adjust Shuffle Links    
-    document.querySelector('.shuffle').addEventListener('click', e => {
-        const item = e.target.closest('li');
+    // open / close sheet
+    const open = () => { 
+        sheet.classList.add("show") 
+        filterOverlay.classList.add("show")
+    };
+    const close = () => {
+        sheet.classList.remove("show")
+        filterOverlay.classList.remove("show")
+    };
+
+    // update UI
+    const setActive = (item) => {
+        document.querySelector(".shuffle li.selected")?.classList.remove("selected");
+        item.classList.add("selected");
+        filterTitle.textContent = item.textContent.trim();
+    };
+
+    // reset
+    const reset = () => {
+        mixer.filter("all");
+        setActive(allItem);
+    };
+
+    // events
+    toggle.onclick = open;
+    closeBtn.onclick = filterOverlay.onclick = close;
+
+    shuffleContainer.addEventListener("click", (e) => {
+        const item = e.target.closest("li");
         if (!item) return;
 
-        document.querySelectorAll('.shuffle li.selected')
-            .forEach(el => el.classList.remove('selected'));
+        if (item.classList.contains("selected")) {
+            reset();
+        } else {
+            mixer.filter(item.dataset.filter);
+            setActive(item);
+        }
 
-        item.classList.add('selected');
+        close();
     });
 
 });

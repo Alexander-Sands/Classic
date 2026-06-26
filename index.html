@@ -207,14 +207,26 @@
         <div id="projects" class="projects">
             <div class="container">
                 <h2 class="special-heading">Projects</h2>
-                <ul class="shuffle">
-                    <li class="selected filter" data-filter="all">All</li>
-                    <li class="filter" data-filter=".animals">Animals</li>
-                    <li class="filter" data-filter=".city">City</li>
-                    <li class="filter" data-filter=".nature">Nature</li>
-                    <li class="filter" data-filter=".food">Food</li>
-                    <li class="filter" data-filter=".style">Style</li>
-                </ul>
+                <button class="filter-toggle">
+                    <i class="fas fa-sliders-h"></i>
+                    <span class="filter-title">All Projects</span>
+                    <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="filter-sheet">
+                    <div class="filter-header">
+                        <span>Choose Category</span>
+                        <i class="fas fa-times close-filter"></i>
+                    </div>
+                    <ul class="shuffle projects-filters">
+                        <li class="selected filter all" data-filter="all">All</li>
+                        <li class="filter" data-filter=".animals">Animals</li>
+                        <li class="filter" data-filter=".city">City</li>
+                        <li class="filter" data-filter=".nature">Nature</li>
+                        <li class="filter" data-filter=".food">Food</li>
+                        <li class="filter" data-filter=".style">Style</li>
+                    </ul>
+                </div>
+                <div class="filter-overlay"></div>
                 <div id="box-shuffle" class="gallery">
                     <div class="row">
                         <div class="mix city">

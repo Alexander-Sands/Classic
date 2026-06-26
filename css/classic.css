@@ -499,14 +499,14 @@ a {
 	padding-top: var(--section-padding);
 	padding-bottom: var(--section-padding);
 }
-.shuffle {
+.projects-filters {
     display: flex;
     justify-content: flex-start;
 	flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 30px;
 }
-.projects ul li {
+.projects-filters li {
 	border: 1px solid #d8d8d8;
     color: #474747;
     padding: 5px 15px;
@@ -514,14 +514,101 @@ a {
 	cursor: pointer;
 	transform: var(--transition);
 }
-.projects ul li:hover {
+.projects-filters li:hover {
 	border: 1px solid var(--main-color);
 	color: var(--main-color);
 }
-.projects ul li.selected {
+.projects-filters li.selected {
 	background-color: var(--main-color);
 	border: 1px solid var(--main-color);
 	color: #fff;
+}
+.filter-toggle,
+.filter-header {
+    display: none;
+}
+@media(max-width:768px) {
+    .filter-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        height: 50px;
+        background: none;
+        border: 2px solid #333;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .filter-overlay {
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.45);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 999;
+    }
+    .filter-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    .filter-sheet {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: -100%;
+        background: #fff;
+        border-radius: 25px 25px 0 0;
+        padding: 20px;
+        transition: var(--transition);
+        z-index: 1000;
+    }
+    .filter-sheet.show {
+        bottom: 0;
+    }
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    .close-filter {
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .projects-filters {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .projects-filters li {
+        padding: 14px;
+        border-radius: 10px;
+        background: #f5f5f5;
+		border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-align: center;
+    }
+	.projects-filters .all {
+		display: none;
+	}
+    .projects-filters li:hover {
+		color: #000;
+        background: #ececec;
+		border: none;
+    }
+    .projects-filters li.selected {
+        background: var(--main-color);
+        color: #fff;
+    }
 }
 .projects .gallery {
 	margin-top: 50px;
