@@ -215,7 +215,7 @@ a {
 	position: relative;
 	height: 100vh;
 }
-/* ************************ TODO: BX Slider Style ************************ */
+/* ************************ TODO: BX Slider Style (jQuery version) ************************ */
 /*
 .header .bx-wrapper {
 	box-shadow: none;
@@ -264,7 +264,7 @@ a {
 	line-height: 1.7;
 }
 */
-/* ************************ End: BX Slider Style ************************  */
+/* ************************ End: BX Slider Style (jQuery version) ************************  */
 /* Swiper Style */
 .swiper .swiper-wrapper {
 	text-align: center;
