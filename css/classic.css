@@ -276,10 +276,10 @@ a {
 }
 .header .swiper p,
 .header .swiper h2 {
-	padding-inline: clamp(43px, 2vw, 20px);
+	padding-inline: clamp(20px, 2vw, 20px);
 }
 .header .swiper h2 {
-	font-size: clamp(19px, 5vw, 50px);
+	font-size: clamp(23px, 5vw, 50px);
 	margin-bottom: 20px;
 	text-transform: uppercase;
 }
@@ -287,7 +287,7 @@ a {
 	color: var(--main-color);
 }
 .header .swiper p {
-	font-size: clamp(14px, 2vw, 18px);
+	font-size: clamp(15px, 2vw, 18px);
 	width: 670px;
 	max-width: 100%;
 	margin: 0 auto;
@@ -296,7 +296,13 @@ a {
 .swiper-button-next, 
 .swiper-button-prev {
 	color: var(--main-color);
-	height: 35px;
+	height: 32px;
+}
+@media (max-width: 768px) {
+	.swiper-button-next, 
+	.swiper-button-prev {
+		opacity: 0;
+	}
 }
 .swiper-pagination-bullet {
 	width: 25px;
@@ -314,7 +320,7 @@ a {
 .header .read-more {
 	position: absolute;
 	display: inline-block;
-	bottom: min(180px, 20vh);;
+	bottom: min(180px, 15vh);;
 	padding: 10px 28px;
 	color: #fff;
 	background-color: transparent;
@@ -404,7 +410,7 @@ a {
 	grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
 	gap: 20px;
 }
-@media (max-width: 992px) {
+@media (max-width: 768px) {
 	.our-team .about,
 	.our-team .team {
 		flex-basis: 100%;
